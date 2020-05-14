@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:background="#FFF8DC"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GridActivity">
+
+    <LinearLayout
+        android:id="@+id/turnsLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="5"
+            app:srcCompat="@drawable/avatar2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="90"
+            android:gravity="center"
+            android:text="0 : 0"
+            android:id="@+id/score"
+            android:textColor="#663E35"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="5"
+            app:srcCompat="@drawable/avatar2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:id="@+id/nameDisplay"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/turnsLayout1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_PLAYERA"
+            android:text="Player A"
+            android:textSize="17sp"
+            android:textAllCaps="true"
+            android:textColor="@color/player1"
+            android:layout_weight="9"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginStart="13dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="80"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_PLAYERB"
+            android:textAllCaps="true"
+            android:text="Player B"
+            android:textSize="17sp"
+            android:textColor="@color/player2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="10"
+            android:paddingEnd="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/turnsLayout"
+        app:layout_constraintTop_toBottomOf="@+id/nameDisplay"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/turnText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:gravity="end"
+            android:layout_gravity="center"
+            android:textColor="#663E35"
+            android:text="@string/turns"
+            android:textAllCaps="true"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/turns"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColor="#663E35"
+            android:textAllCaps="true"
+            android:text="@string/player"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/turnsLayout"
+        android:id="@+id/colorView">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:background="@color/player1"
+            app:layout_constraintTop_toBottomOf="@id/turnsLayout"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:background="@color/player2"
+            app:layout_constraintTop_toBottomOf="@id/turnsLayout"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/gridRoot"
+        android:layout_marginTop="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/colorView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF8DC">
+
+            <ImageView
+                android:id="@+id/gridImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="#FFF8DC"/>
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:text="@string/start"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:background="#F5DEB3"
+                android:textColor="#663E35"
+                app:layout_constraintBottom_toBottomOf="@id/gridImageView"
+                app:layout_constraintTop_toTopOf="@id/gridImageView"
+                app:layout_constraintLeft_toLeftOf="@id/gridImageView"
+                app:layout_constraintRight_toRightOf="@id/gridImageView"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
