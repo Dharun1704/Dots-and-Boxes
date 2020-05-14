@@ -1,6 +1,7 @@
 package com.example.dots;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -15,6 +16,7 @@ public class splashScreen extends AppCompatActivity {
 
     ImageView splash,splashBottom;
     Animation anim,animBottom;
+    MediaPlayer startSound = new MediaPlayer();
 
     private static final int splash_screen = 2000;
 
@@ -26,7 +28,9 @@ public class splashScreen extends AppCompatActivity {
 
         anim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         animBottom = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        startSound = MediaPlayer.create(this, R.raw.startingsound);
 
+        startSound.start();
         splash = findViewById(R.id.imageViewSplash);
         splash.setAnimation(anim);
         splashBottom = findViewById(R.id.imageViewSplashBottom);

@@ -46,6 +46,7 @@ public class GridActivity extends AppCompatActivity {
     private int[] boxCount=new int[2];
     private TextView turnTextView, score;
     private MediaPlayer popSound = new MediaPlayer();
+    private MediaPlayer fillSound = new MediaPlayer();
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -76,6 +77,7 @@ public class GridActivity extends AppCompatActivity {
         imageView = findViewById(R.id.gridImageView);
         turnsView = findViewById(R.id.turns);
         popSound = MediaPlayer.create(this, R.raw.popsound);
+        fillSound = MediaPlayer.create(this, R.raw.fillsound);
 
         playerA.setText(P1name);
         playerB.setText(P2name);
@@ -182,6 +184,7 @@ public class GridActivity extends AppCompatActivity {
                                             if (isValidIndex(xBoxCheckIndex, i)) {
                                                 if (checkNSetBox(boxes[xBoxCheckIndex][i])) {
                                                     mCanvas.drawRect(xPoints[xBoxCheckIndex] + 9, yPoints[i] + 9, xPoints[xBoxCheckIndex + 1] - 9, yPoints[i + 1] - 9, mPaintLine[pTurn]);
+                                                    fillSound.start();
                                                 }
                                             }
                                         }
@@ -217,6 +220,7 @@ public class GridActivity extends AppCompatActivity {
                                                 if (isValidIndex(i, yBoxCheckIndex)) {
                                                     if (checkNSetBox(boxes[i][yBoxCheckIndex])) {
                                                         mCanvas.drawRect(xPoints[i] + 9, yPoints[yBoxCheckIndex] + 9, xPoints[i + 1] - 9, yPoints[yBoxCheckIndex + 1] - 9, mPaintLine[pTurn]);
+                                                        fillSound.start();
                                                         flagChangePlayer=false;
                                                     }
                                                 }
